@@ -5,8 +5,7 @@ iframes and doesn’t impose any pre-built themes on your forms.
 
 The only thing you need to change, to use simple form, is the `action` attribute on your form and use the `post method` on it.
 
-An example of the form's usage is at https://liveformhq.com/#contact You can checkout the source, it's very simple.
-
+An example of the form's usage is at [https://liveformhq.com/#contact](https://liveformhq.com/#contact) You can checkout the source, it's very simple.
 
 ~~~html
 <form role="form" action="https://liveformhq.com/form/00a1265d-af82-44dc-aba7-8ef01018c6c3" method="POST" accept-charset="utf-8">
@@ -31,5 +30,8 @@ An example of the form's usage is at https://liveformhq.com/#contact You can che
   <button type="submit" class="btn btn-default">Send Message</button>
 </form>
 ~~~
+
+### Screenshot of the above contact form
+![Contact Form](/images/liveform-contact.png)
 
 As you can see, live form integrates easily and seamlessly into your app. Hope you guys find it useful.
