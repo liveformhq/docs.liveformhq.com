@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Home of LiveForm's Documentation, the ultimate endpoint for your online forms.">
+  <meta name="author" content="Khaja Minhajuddin">
+  
+  <title>LiveForm Documentation</title>
+  
+
+  <link rel="shortcut icon" href="favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-85287696-1', 'liveformhq.com');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> LiveForm Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href=".">Home</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#documentation-home">Documentation Home</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">LiveForm Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/liveformhq/docs.liveformhq.com/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="documentation-home">Documentation Home</h1>
+<p>LiveForm allows you to make online forms easily. It allows you to use a form without the annoying
+iframes and doesn’t impose any pre-built themes on your forms.</p>
+<p>The only thing you need to change, to use simple form, is the <code>action</code> attribute on your form and use the <code>post method</code> on it.</p>
+<p>An example of the form's usage is at https://liveformhq.com/#contact You can checkout the source, it's very simple.</p>
+<pre><code class="html">&lt;form role=&quot;form&quot; action=&quot;https://liveformhq.com/form/00a1265d-af82-44dc-aba7-8ef01018c6c3&quot; method=&quot;POST&quot; accept-charset=&quot;utf-8&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;utf8&quot; value=&quot;✓&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;_redirect&quot; value=&quot;https://liveformhq.com/thank_you&quot;&gt;
+
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;name&quot; id=&quot;name&quot; placeholder=&quot;Name&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;email&quot;&gt;Email address&lt;/label&gt;
+    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; name=&quot;email&quot; id=&quot;email&quot; placeholder=&quot;Email&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;
+    &lt;textarea class=&quot;form-control&quot; rows=&quot;5&quot; name=&quot;message&quot; id=&quot;message&quot; placeholder=&quot;Your message...&quot;&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Send Message&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>As you can see, live form integrates easily and seamlessly into your app. Hope you guys find it useful.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; 2016 <a href="https://liveformhq.com/">https://liveformhq.com/</a> Cosmicvent Software Pvt Ltd</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/liveformhq/docs.liveformhq.com/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.15.3
+Build Date UTC : 2016-10-06 17:22:54.001823
+-->
