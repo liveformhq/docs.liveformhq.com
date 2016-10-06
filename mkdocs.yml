@@ -1,0 +1,25 @@
+site_name: LiveForm Documentation
+theme: readthedocs
+markdown_extensions: [fenced_code]
+repo_url: https://github.com/liveformhq/docs.liveformhq.com/
+site_description: Home of LiveForm's Documentation, the ultimate endpoint for your online forms.
+site_author: Khaja Minhajuddin
+site_favicon: favicon.ico
+google_analytics: ['UA-85287696-1', 'liveformhq.com']
+copyright: '&copy; 2016 <a href="https://liveformhq.com/">https://liveformhq.com/</a> Cosmicvent Software Pvt Ltd'
+pages:
+- Home: 'index.md'
+#- How to Setup:
+#- Hexo: 'hexo.md'
+#- Hugo: 'hugo.md'
+#- Middleman: 'middleman.md'
+#- Octopress: 'octopress.md'
+#- Jekyll: 'jekyll.md'
+#- 'Bundler and Ruby': 'bundle_and_ruby.md'
+#- 'Python and Pip': 'python_and_pip.md'
+#- MkDocs: 'mkdocs.md'
+#- Themes: 'themes.md'
+#- Scheduled/Recurring/cron deploys: 'scheduled_deploys.md'
+#- API: 'api.md'
+#- Flow: 'flow.md'
+#- 'Repository not Found Error': 'repo_not_found.md'
