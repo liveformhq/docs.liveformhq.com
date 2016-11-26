@@ -38,7 +38,6 @@ As you can see, live form integrates easily and seamlessly into your app. Hope y
 
 
 ### File Uploads
-!Contact Form(/images/liveform-contact.png)
 
 File uploads are very simple using liveform. You can now do file uploads using Liveform.
 You just need two things to be able to upload files.
