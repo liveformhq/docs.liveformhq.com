@@ -9,6 +9,7 @@ google_analytics: ['UA-85287696-1', 'liveformhq.com']
 copyright: '&copy; 2016 <a href="https://liveformhq.com/">https://liveformhq.com/</a> Cosmicvent Software Pvt Ltd'
 pages:
 - Home: 'index.md'
+- Special Variables: 'special_variables.md'
 #- How to Setup:
 #- Hexo: 'hexo.md'
 #- Hugo: 'hugo.md'
