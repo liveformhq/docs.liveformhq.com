@@ -24,6 +24,16 @@
             "location": "/#api", 
             "text": "If you go to the form's API page, you'll see a simple jQuery code snippet which shows you how to\naccess your messages via the API. To access the form submissions you need to pass a url with a valid form id\na valid form api_key and an optional  page  parameter. Pagination can be performed using the  page  parameter  To see how you can use the API to build an html page app checkout our blog post on  Creating an Imgur clone using Github Pages and Liveform.  $.get( https://api.liveformhq.com/v1/forms/369c5f72-7940-4d20-b3c7-8a963fc49a15/messages , {\n    api_key:  11d43d92-d928-4a8b-b55c-50f98227c794 ,\n    page: 1, // if you don't pass a page param, the first page is returned\n    page_size: 25 // the default page_size is 25, you can pass a value between 1 and 100 as the page_size\n  },\n  function(messages) {\n    console.log(messages)\n  })  Here is a sample response from the API  {\n     messages : [{\n         id :  56c22cba-530e-4f76-9444-ed9fd14688a0 ,\n         data : {\n             title :  Aeroplane Rawcode ,\n             upload :  https://s3.amazonaws.com/liveform/files/50c662eb-7646-4176-839c-ddea9ea61486/aeroplane.jpg \n        },\n         form_id :  369c5f72-7940-4d20-b3c7-8a963fc49a15 ,\n         request_ip :  183.83.175.192 ,\n         spam : false,\n         archived_at : null,\n         created_at :  2016-11-27T19:54:44.993Z ,\n         updated_at :  2016-11-27T19:54:45.191Z \n    }, {\n         id :  dbb365db-b929-4a8f-970b-fbfbf83a58f5 ,\n        ...\n    }, { ... }, ...],\n     meta : {\n         current_page : 2,\n         next_page : 3,\n         prev_page : 1,\n         total_pages : 5,\n         total_count : 120,\n         next_link :  https://api.liveformhq.com/v1/forms/369c5f72-7940-4d20-b3c7-8a963fc49a15/messages?page=3 ,\n         prev_link :  https://api.liveformhq.com/v1/forms/369c5f72-7940-4d20-b3c7-8a963fc49a15/messages?page=1 \n    }\n}", 
             "title": "API"
+        }, 
+        {
+            "location": "/special_variables/", 
+            "text": "There are a few special variables which can be used with LiveForm. Here is a complete list of them and their purpose.\n\n\n1. _noredirect\n\n\nIf you pass this the with the form submission, the response will not return a redirect.\n\n\ncurl -X POST \\\n  --data \nname=Khaja Muzaffaruddin\n \\\n  --data \nbio=Awesome dude\n \\\n  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect\n\n\n\n\nHTTP/1.1 200 OK\n...", 
+            "title": "Special Variables"
+        }, 
+        {
+            "location": "/special_variables/#1-_noredirect", 
+            "text": "If you pass this the with the form submission, the response will not return a redirect.  curl -X POST \\\n  --data  name=Khaja Muzaffaruddin  \\\n  --data  bio=Awesome dude  \\\n  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect  HTTP/1.1 200 OK\n...", 
+            "title": "1. _noredirect"
         }
     ]
 }

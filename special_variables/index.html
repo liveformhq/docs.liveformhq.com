@@ -7,21 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Khaja Minhajuddin">
-  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="shortcut icon" href="../favicon.ico">
   
-  <title>LiveForm Documentation</title>
+  <title>Special Variables - LiveForm Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
   
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script>
-  <script>var base_url = '.';</script>
-  <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Special Variables";
+    var mkdocs_page_input_path = "special_variables.md";
+    var mkdocs_page_url = "/special_variables/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,9 +46,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> LiveForm Documentation</a>
+        <a href=".." class="icon icon-home"> LiveForm Documentation</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
@@ -55,14 +59,21 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href=".">Home</a>
+        <a class="" href="..">Home</a>
         
     </li>
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="special_variables/">Special Variables</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Special Variables</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#1-_noredirect">1. _noredirect</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -77,7 +88,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">LiveForm Documentation</a>
+        <a href="..">LiveForm Documentation</a>
       </nav>
 
       
@@ -85,10 +96,15 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
     
+      
     
+    <li>Special Variables</li>
     <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/liveformhq/docs.liveformhq.com/edit/master/docs/special_variables.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -97,22 +113,29 @@
           <div role="main">
             <div class="section">
               
+                <p>There are a few special variables which can be used with LiveForm. Here is a complete list of them and their purpose.</p>
+<h3 id="1-_noredirect">1. _noredirect</h3>
+<p>If you pass this the with the form submission, the response will not return a redirect.</p>
+<pre><code class="bash">curl -X POST \
+  --data &quot;name=Khaja Muzaffaruddin&quot; \
+  --data &quot;bio=Awesome dude&quot; \
+  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect
+</code></pre>
 
-  <h1 id="search">Search Results</h1>
-
-  <form id="content_search" action="search.html">
-    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" autocomplete="off" autofocus>
-  </form>
-
-  <div id="mkdocs-search-results" class="search-results">
-    Searching...
-  </div>
-
-
+<pre><code class="text">HTTP/1.1 200 OK
+...
+</code></pre>
+              
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -140,10 +163,12 @@
           <a href="https://github.com/liveformhq/docs.liveformhq.com/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
       
     </span>
 </div>
-    <script src="./js/theme.js"></script>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>
