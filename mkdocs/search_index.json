@@ -27,13 +27,28 @@
         }, 
         {
             "location": "/special_variables/", 
-            "text": "There are a few special variables which can be used with LiveForm. Here is a complete list of them and their purpose.\n\n\n1. _noredirect\n\n\nIf you pass this the with the form submission, the response will not return a redirect.\n\n\ncurl -X POST \\\n  --data \nname=Khaja Muzaffaruddin\n \\\n  --data \nbio=Awesome dude\n \\\n  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect\n\n\n\n\nHTTP/1.1 200 OK\n...", 
+            "text": "There are a few special variables which can be used with LiveForm. Here is a complete list of them and their purpose.\n\n\n1. _noredirect\n\n\nIf you pass this the with the form submission, the response will not return a redirect.\n\n\ncurl -X POST \\\n  --data \nname=Khaja Muzaffaruddin\n \\\n  --data \nbio=Awesome dude\n \\\n  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect\n\n\n\n\nThe \n_noredirect\n parameter can be appended the url as a query string like above. Or it can be set using a hidden input field.\n\n\nThe resposne to this will be\n\n\nHTTP/1.1 200 OK\n...\n\n\n\n\n2. _redirect\n\n\nPassing an input parameter with this name will redirect the user to its value. For instance in the example below, once the user submits\nthe form, he will be redirected to \nhttps://awesome.com/thank-you#thanks\n\n\ncurl -X POST \\\n  --data \"Zainab\" \\\n  --data \"bio=Awesome dude\" \\\n  --data \"_redirect=https://awesome.com/thank-you#thanks\" \\\n  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect\n\n\nThis can be used to redirect the user to a thank you page. If you don't have a dedicated thank you page, you can still append a \"#thank-you\" fragment to the form's url\nand show a thank you message via javascript if it is present.\n\n\nPlease note that this should be a full url and not a relative url. e.g. passing \"/thanks\" in _redirect will not work.\n\n\n3. g-recaptcha-response\n\n\nThis holds the recaptcha response for your form, if you are using google's recaptcha. We use this data to verify if a message is spam.\n\n\n4. _utf8\n\n\nYou can add an input field with a name \n_utf8\n and set it to a unicode character like the \u2713 mark. The purpose of this is explained here: http://stackoverflow.com/a/3348524/24105", 
             "title": "Special Variables"
         }, 
         {
             "location": "/special_variables/#1-_noredirect", 
-            "text": "If you pass this the with the form submission, the response will not return a redirect.  curl -X POST \\\n  --data  name=Khaja Muzaffaruddin  \\\n  --data  bio=Awesome dude  \\\n  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect  HTTP/1.1 200 OK\n...", 
+            "text": "If you pass this the with the form submission, the response will not return a redirect.  curl -X POST \\\n  --data  name=Khaja Muzaffaruddin  \\\n  --data  bio=Awesome dude  \\\n  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect  The  _noredirect  parameter can be appended the url as a query string like above. Or it can be set using a hidden input field.  The resposne to this will be  HTTP/1.1 200 OK\n...", 
             "title": "1. _noredirect"
+        }, 
+        {
+            "location": "/special_variables/#2-_redirect", 
+            "text": "Passing an input parameter with this name will redirect the user to its value. For instance in the example below, once the user submits\nthe form, he will be redirected to  https://awesome.com/thank-you#thanks  curl -X POST \\\n  --data \"Zainab\" \\\n  --data \"bio=Awesome dude\" \\\n  --data \"_redirect=https://awesome.com/thank-you#thanks\" \\\n  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect  This can be used to redirect the user to a thank you page. If you don't have a dedicated thank you page, you can still append a \"#thank-you\" fragment to the form's url\nand show a thank you message via javascript if it is present.  Please note that this should be a full url and not a relative url. e.g. passing \"/thanks\" in _redirect will not work.", 
+            "title": "2. _redirect"
+        }, 
+        {
+            "location": "/special_variables/#3-g-recaptcha-response", 
+            "text": "This holds the recaptcha response for your form, if you are using google's recaptcha. We use this data to verify if a message is spam.", 
+            "title": "3. g-recaptcha-response"
+        }, 
+        {
+            "location": "/special_variables/#4-_utf8", 
+            "text": "You can add an input field with a name  _utf8  and set it to a unicode character like the \u2713 mark. The purpose of this is explained here: http://stackoverflow.com/a/3348524/24105", 
+            "title": "4. _utf8"
         }
     ]
 }

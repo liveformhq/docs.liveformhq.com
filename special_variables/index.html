@@ -73,6 +73,15 @@
                 <li class="toctree-l3"><a href="#1-_noredirect">1. _noredirect</a></li>
                 
             
+                <li class="toctree-l3"><a href="#2-_redirect">2. _redirect</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#3-g-recaptcha-response">3. g-recaptcha-response</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#4-_utf8">4. _utf8</a></li>
+                
+            
             </ul>
         
     </li>
@@ -122,9 +131,27 @@
   https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect
 </code></pre>
 
+<p>The <code>_noredirect</code> parameter can be appended the url as a query string like above. Or it can be set using a hidden input field.</p>
+<p>The resposne to this will be</p>
 <pre><code class="text">HTTP/1.1 200 OK
 ...
 </code></pre>
+
+<h3 id="2-_redirect">2. _redirect</h3>
+<p>Passing an input parameter with this name will redirect the user to its value. For instance in the example below, once the user submits
+the form, he will be redirected to <code>https://awesome.com/thank-you#thanks</code></p>
+<p>curl -X POST \
+  --data "Zainab" \
+  --data "bio=Awesome dude" \
+  --data "_redirect=https://awesome.com/thank-you#thanks" \
+  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect</p>
+<p>This can be used to redirect the user to a thank you page. If you don't have a dedicated thank you page, you can still append a "#thank-you" fragment to the form's url
+and show a thank you message via javascript if it is present.</p>
+<p>Please note that this should be a full url and not a relative url. e.g. passing "/thanks" in _redirect will not work.</p>
+<h3 id="3-g-recaptcha-response">3. g-recaptcha-response</h3>
+<p>This holds the recaptcha response for your form, if you are using google's recaptcha. We use this data to verify if a message is spam.</p>
+<h3 id="4-_utf8">4. _utf8</h3>
+<p>You can add an input field with a name <code>_utf8</code> and set it to a unicode character like the ✓ mark. The purpose of this is explained here: http://stackoverflow.com/a/3348524/24105</p>
               
             </div>
           </div>
