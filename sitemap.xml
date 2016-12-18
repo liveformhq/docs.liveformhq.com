@@ -4,7 +4,15 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2016-12-11</lastmod>
+     <lastmod>2016-12-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/api/</loc>
+     <lastmod>2016-12-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +20,7 @@
     
     <url>
      <loc>/special_variables/</loc>
-     <lastmod>2016-12-11</lastmod>
+     <lastmod>2016-12-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

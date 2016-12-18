@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Khaja Minhajuddin">
+  <link rel="shortcut icon" href="../favicon.ico">
+  
+  <title>API - LiveForm Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API";
+    var mkdocs_page_input_path = "api.md";
+    var mkdocs_page_url = "/api/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-85287696-1', 'liveformhq.com');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> LiveForm Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">API</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#api">API</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../special_variables/">Special Variables</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">LiveForm Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>API</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/liveformhq/docs.liveformhq.com/edit/master/docs/api.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="api">API</h1>
+<p>LiveForm has a simple read only JSON api at the moment. Here is how you can use it</p>
+<p>Request</p>
+<pre><code class="bash"># if you don't pass a page param, the first page is returned
+# the default page_size is 25, you can pass a value between 1 and 100 as the page_size
+
+curl \
+    --data page=1 \
+    --data page_size=25 \
+  'https://api.liveformhq.com/v1/forms/369c5f72-7940-4d20-b3c7-8a963fc49a15/messages?api_key=11d43d92-d928-4a8b-b55c-50f98227c794'
+</code></pre>
+
+<p>Response</p>
+<pre><code class="javascript">{
+    &quot;messages&quot;: [{
+        &quot;id&quot;: &quot;56c22cba-530e-4f76-9444-ed9fd14688a0&quot;,
+        &quot;data&quot;: {
+            &quot;title&quot;: &quot;Aeroplane Rawcode&quot;,
+            &quot;upload&quot;: &quot;https://s3.amazonaws.com/liveform/files/50c662eb-7646-4176-839c-ddea9ea61486/aeroplane.jpg&quot;
+        },
+        &quot;form_id&quot;: &quot;369c5f72-7940-4d20-b3c7-8a963fc49a15&quot;,
+        &quot;request_ip&quot;: &quot;183.83.175.192&quot;,
+        &quot;spam&quot;: false,
+        &quot;archived_at&quot;: null,
+        &quot;created_at&quot;: &quot;2016-11-27T19:54:44.993Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-11-27T19:54:45.191Z&quot;
+    }, {
+        &quot;id&quot;: &quot;dbb365db-b929-4a8f-970b-fbfbf83a58f5&quot;,
+        &quot;data&quot;: {
+            &quot;title&quot;: &quot;Cats !!&quot;,
+            &quot;upload&quot;: &quot;https://s3.amazonaws.com/liveform/files/ec380243-e97b-4c7f-a38b-ffc6facaba6c/cat1.jpeg&quot;
+        },
+        &quot;form_id&quot;: &quot;369c5f72-7940-4d20-b3c7-8a963fc49a15&quot;,
+        &quot;request_ip&quot;: &quot;183.83.175.192&quot;,
+        &quot;spam&quot;: false,
+        &quot;archived_at&quot;: null,
+        &quot;created_at&quot;: &quot;2016-11-27T12:53:59.055Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-11-27T12:53:59.365Z&quot;
+    }],
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;next_page&quot;: null,
+        &quot;prev_page&quot;: null,
+        &quot;total_pages&quot;: 1,
+        &quot;total_count&quot;: 7,
+        &quot;next_link&quot;: null,
+        &quot;prev_link&quot;: null
+    }
+}
+</code></pre>
+
+<p>If you go to the form's API page, you'll see a simple jQuery code snippet which shows you how to
+access your messages via the API. To access the form submissions you need to pass a url with a valid form id
+a valid form api_key and an optional <code>page</code> parameter. Pagination can be performed using the <code>page</code> parameter</p>
+<p>To see how you can use the API to build an html page app checkout our blog post on
+<a href="http://blog.liveformhq.com/2016/11/27/creating-an-imgur-clone-using-github-pages-and-liveform/"> Creating an Imgur clone using Github Pages and Liveform.</a></p>
+<pre><code class="javascript">$.get(&quot;https://api.liveformhq.com/v1/forms/369c5f72-7940-4d20-b3c7-8a963fc49a15/messages&quot;, {
+    api_key: &quot;11d43d92-d928-4a8b-b55c-50f98227c794&quot;,
+    page: 1, // if you don't pass a page param, the first page is returned
+    page_size: 25 // the default page_size is 25, you can pass a value between 1 and 100 as the page_size
+  },
+  function(messages) {
+    console.log(messages)
+  })
+</code></pre>
+
+<p>Here is a sample response from the API</p>
+<pre><code class="javascript">{
+    &quot;messages&quot;: [{
+        &quot;id&quot;: &quot;56c22cba-530e-4f76-9444-ed9fd14688a0&quot;,
+        &quot;data&quot;: {
+            &quot;title&quot;: &quot;Aeroplane Rawcode&quot;,
+            &quot;upload&quot;: &quot;https://s3.amazonaws.com/liveform/files/50c662eb-7646-4176-839c-ddea9ea61486/aeroplane.jpg&quot;
+        },
+        &quot;form_id&quot;: &quot;369c5f72-7940-4d20-b3c7-8a963fc49a15&quot;,
+        &quot;request_ip&quot;: &quot;183.83.175.192&quot;,
+        &quot;spam&quot;: false,
+        &quot;archived_at&quot;: null,
+        &quot;created_at&quot;: &quot;2016-11-27T19:54:44.993Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-11-27T19:54:45.191Z&quot;
+    }, {
+        &quot;id&quot;: &quot;dbb365db-b929-4a8f-970b-fbfbf83a58f5&quot;,
+        ...
+    }, { ... }, ...],
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 2,
+        &quot;next_page&quot;: 3,
+        &quot;prev_page&quot;: 1,
+        &quot;total_pages&quot;: 5,
+        &quot;total_count&quot;: 120,
+        &quot;next_link&quot;: &quot;https://api.liveformhq.com/v1/forms/369c5f72-7940-4d20-b3c7-8a963fc49a15/messages?page=3&quot;,
+        &quot;prev_link&quot;: &quot;https://api.liveformhq.com/v1/forms/369c5f72-7940-4d20-b3c7-8a963fc49a15/messages?page=1&quot;
+    }
+}
+
+</code></pre>
+
+<p><img alt="Liveform API Code" src="../images/liveform-api.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../special_variables/" class="btn btn-neutral float-right" title="Special Variables">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; 2016 <a href="https://liveformhq.com/">https://liveformhq.com/</a> Cosmicvent Software Pvt Ltd</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/liveformhq/docs.liveformhq.com/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../special_variables/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
