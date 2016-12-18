@@ -23,11 +23,13 @@ HTTP/1.1 200 OK
 Passing an input parameter with this name will redirect the user to its value. For instance in the example below, once the user submits
 the form, he will be redirected to `https://awesome.com/thank-you#thanks`
 
+```bash
 curl -X POST \
   --data "Zainab" \
   --data "bio=Awesome dude" \
   --data "_redirect=https://awesome.com/thank-you#thanks" \
   https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect
+```
 
 This can be used to redirect the user to a thank you page. If you don't have a dedicated thank you page, you can still append a "#thank-you" fragment to the form's url
 and show a thank you message via javascript if it is present.
