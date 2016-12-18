@@ -8,7 +8,7 @@ Request
 # if you don't pass a page param, the first page is returned
 # the default page_size is 25, you can pass a value between 1 and 100 as the page_size
 
-curl \
+curl -X GET \
     --data page=1 \
     --data page_size=25 \
   'https://api.liveformhq.com/v1/forms/369c5f72-7940-4d20-b3c7-8a963fc49a15/messages?api_key=11d43d92-d928-4a8b-b55c-50f98227c794'
