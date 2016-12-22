@@ -9,7 +9,7 @@
   <meta name="author" content="Khaja Minhajuddin">
   <link rel="shortcut icon" href="../favicon.ico">
   
-  <title>Special Variables - LiveForm Documentation</title>
+  <title>reCAPTCHA - LiveForm Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Special Variables";
-    var mkdocs_page_input_path = "special_variables.md";
-    var mkdocs_page_url = "/special_variables/";
+    var mkdocs_page_name = "reCAPTCHA";
+    var mkdocs_page_input_path = "recaptcha.md";
+    var mkdocs_page_url = "/recaptcha/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -72,31 +72,22 @@
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Special Variables</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#1-_noredirect">1. _noredirect</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#2-_redirect">2. _redirect</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#3-g-recaptcha-response">3. g-recaptcha-response</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#4-_utf8">4. _utf8</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../special_variables/">Special Variables</a>
         
     </li>
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../recaptcha/">reCAPTCHA</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">reCAPTCHA</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#recaptcha">reCAPTCHA</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -130,10 +121,10 @@
     
       
     
-    <li>Special Variables</li>
+    <li>reCAPTCHA</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/liveformhq/docs.liveformhq.com/edit/master/docs/special_variables.md"
+        <a href="https://github.com/liveformhq/docs.liveformhq.com/edit/master/docs/recaptcha.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -143,38 +134,49 @@
           <div role="main">
             <div class="section">
               
-                <p>There are a few special variables which can be used with LiveForm. Here is a complete list of them and their purpose.</p>
-<h3 id="1-_noredirect">1. _noredirect</h3>
-<p>If you pass this the with the form submission, the response will not return a redirect.</p>
-<pre><code class="bash">curl -X POST \
-  --data &quot;name=Khaja Muzaffaruddin&quot; \
-  --data &quot;bio=Awesome dude&quot; \
-  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect
+                <h1 id="recaptcha">reCAPTCHA</h1>
+<p>From the <a href="https://www.google.com/recaptcha/intro/index.html">reCAPTCHA</a>:</p>
+<blockquote>
+<p>Protect your website from spam and abuse while letting real people pass through with ease</p>
+</blockquote>
+<p>It is an awesome free service provided by Google. Setting it up with LiveForm is very simple.</p>
+<ol>
+<li>Go to the reCAPTCHA website and click on the 'Get reCAPTCHA' button
+  <img alt="Get reCAPTCHA" src="../images/recaptcha/recaptcha-home-1.png" /></li>
+<li>Register a new site on reCAPTCHA
+  <img alt="Register a new site" src="../images/recaptcha/recaptcha-register-site-2.png" /></li>
+<li>Note the <code>Site key</code> and the <code>Secret key</code> values from your form details page on reCAPTCHA
+  <img alt="Site and secret key" src="../images/recaptcha/recaptcha-keys-3.png" /></li>
+<li>Paste your <code>Secret key</code> on the LiveForm reCAPTCHA configuration page and save it. In our example that would be <code>6LfhfA8UAAAAAKkGE0t5QxPJD3G5sXut70SW4Gcq</code>
+  <img alt="Liveform reCAPTCHA configuration" src="../images/recaptcha/recaptcha-liveform-setting-4.png" /></li>
+<li>
+<p>Paste this snippet before the closing <code>&lt;/head&gt;</code> tag on your HTML template. Replace <code>form_submit</code> with the id of your submit button</p>
+<pre><code>&lt;script src='https://www.google.com/recaptcha/api.js'&gt;&lt;/script&gt;
+&lt;script&gt;
+function enableSubmit() {
+  var btn = document.getElementById('form_submit');
+  btn.disabled = false;
+  btn.title = '';
+}
+&lt;/script&gt;
 </code></pre>
-
-<p>The <code>_noredirect</code> parameter can be appended the url as a query string like above. Or it can be set using a hidden input field.</p>
-<p>The resposne to this will be</p>
-<pre><code class="text">HTTP/1.1 200 OK
-...
+</li>
+<li>
+<p>Paste this snippet at the end of the <code>&lt;form&gt;</code> where you want the reCAPTCHA widget to appear, make sure you use your Site key:</p>
+<pre><code>&lt;div class="g-recaptcha" data-sitekey="6LfhfA8UAAAAAE8tjvWtBUmPvO6xaxHuceNags-j"
+  data-callback="enableSubmit"&gt;&lt;/div&gt;
 </code></pre>
-
-<h3 id="2-_redirect">2. _redirect</h3>
-<p>Passing an input parameter with this name will redirect the user to its value. For instance in the example below, once the user submits
-the form, he will be redirected to <code>https://awesome.com/thank-you#thanks</code></p>
-<pre><code class="bash">curl -X POST \
-  --data &quot;Zainab&quot; \
-  --data &quot;bio=Awesome dude&quot; \
-  --data &quot;_redirect=https://awesome.com/thank-you#thanks&quot; \
-  https://liveformhq.com/form/27fb4351-d2f7-45d3-96ac-8dae0eda2d26?_noredirect
+</li>
+<li>
+<p>Make sure your submit button has an <code>id</code> attribute set to the same <code>id</code> as the one in javascript snippet at step 5. Also, set the disabled attribute, e.g.</p>
+<pre><code>&lt;input id="form_submit" type="submit" value="Submit" disabled&gt;
 </code></pre>
-
-<p>This can be used to redirect the user to a thank you page. If you don't have a dedicated thank you page, you can still append a "#thank-you" fragment to the form's url
-and show a thank you message via javascript if it is present.</p>
-<p>Please note that this should be a full url and not a relative url. e.g. passing "/thanks" in _redirect will not work.</p>
-<h3 id="3-g-recaptcha-response">3. g-recaptcha-response</h3>
-<p>This holds the recaptcha response for your form, if you are using google's recaptcha. We use this data to verify if a message is spam.</p>
-<h3 id="4-_utf8">4. _utf8</h3>
-<p>You can add an input field with a name <code>_utf8</code> and set it to a unicode character like the ✓ mark. The purpose of this is explained here: http://stackoverflow.com/a/3348524/24105</p>
+</li>
+</ol>
+<p><img alt="Final form with reCAPTCHA" src="../images/recaptcha/recaptcha-final-6.png" /></p>
+<p>The <a href="https://developers.google.com/recaptcha/">reCAPTCHA documentation</a> site describes more details and advanced configurations.</p>
+<p>That is all, now you have reCAPTCHA wired up with LiveForm. Now, whenever a submission is made, LiveForm will check for spam using reCAPTCHA.
+You can check a fully working version of reCAPTCHA on the <a href="https://liveformhq.com/#contact">https://liveformhq.com</a> website</p>
               
             </div>
           </div>
@@ -182,10 +184,10 @@ and show a thank you message via javascript if it is present.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../recaptcha/" class="btn btn-neutral float-right" title="reCAPTCHA">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../akismet/" class="btn btn-neutral float-right" title="Akismet">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../api/" class="btn btn-neutral" title="API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../special_variables/" class="btn btn-neutral" title="Special Variables"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -215,10 +217,10 @@ and show a thank you message via javascript if it is present.</p>
           <a href="https://github.com/liveformhq/docs.liveformhq.com/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../api/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../special_variables/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../recaptcha/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../akismet/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
